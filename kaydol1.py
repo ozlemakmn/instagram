@@ -28,10 +28,10 @@ class Kaydol:
         sleep(2)
         kullaniciad=driver.find_element(By.NAME,"username")
         kullaniciad.send_keys("akman123")
-        sleep(5)
+        sleep(2)
         öneri =driver.find_element(By.XPATH,"/html/body/div[2]/div/div/div[2]/div/div/div[1]/section/main/div/div/div[1]/div[2]/form/div[7]/div[1]/div/div")
         öneri.click()
-        sleep(5)
+        sleep(2)
         öneri2= driver.find_element(By.XPATH,"/html/body/div[2]/div/div/div[2]/div/div/div[1]/section/main/div/div/div[1]/div[2]/form/div[7]")
         öneri2.click()
         passwordInput=driver.find_element(By.NAME,"password")
@@ -41,6 +41,8 @@ class Kaydol:
         kayitoluşturbutton.click()
         errorMessage= WebDriverWait(driver, 5).until(EC.element_to_be_clickable((By.ID, "ssfErrorAlert")))
         testResult = errorMessage.text == "Bu şifreyi tahmin etmek çok kolay. Lütfen yeni bir şifre oluştur."
+        sleep(3)
         print(f"TEST SONUCU: {testResult}")
+
 testclass=Kaydol()
 testclass.kayit_ol()       
